@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import JavascriptException
-
+from time import sleep
 
 class Page:
     def __init__(self, driver):
@@ -19,10 +19,19 @@ class Page:
         """ Navigate to a specified URL. """
         self.driver.get(url)
 
+    def back(self):
+        """Getting back to the previous page and waiting for it to load"""
+        current_url = self.driver.current_url
+        self.driver.back()
+        WebDriverWait(self.driver, 10).until(
+            EC.url_changes(current_url)
+        )
+
     def find_element(self, *locator):
         """ Find a single element by a locator tuple (By, value). """
         try:
             self.wait_for_element(*locator)
+            assert self.driver.find_element(*locator)
             return self.driver.find_element(*locator)
 
         except NoSuchElementException:

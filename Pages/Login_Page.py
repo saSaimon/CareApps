@@ -12,7 +12,6 @@ class LoginPage(Page):
     NO_USER_FOUND_MODAL = (By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]")
     PASSWORD_INVALID = (By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]")
     
-
     def enter_to_website(self, url):
         self.open_url(url)
 

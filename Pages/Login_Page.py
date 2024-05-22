@@ -11,7 +11,7 @@ class LoginPage(Page):
     LOGO = (By.XPATH, "//img[@alt='CareApps-logo']")
     NO_USER_FOUND_MODAL = (By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]")
     PASSWORD_INVALID = (By.XPATH, "/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[2]")
-    
+
     def enter_to_website(self, url):
         self.open_url(url)
 
@@ -25,7 +25,7 @@ class LoginPage(Page):
         self.click(*self.REMEMBERME_BUTTON)
 
     def click_forgot_pass_link(self):
-        self.click(*self.PASSWORD_FIELD)
+        self.click(*self.FORGOT_PASS_LINK)
 
     def click_login_button(self):
         self.click(*self.LOGIN_BUTTON)
